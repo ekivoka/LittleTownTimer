@@ -8,8 +8,7 @@ class KidsController
     {
         $kidsList = array();
         $kidsList = Kids::getKids();
-        //require_once(ROOT . "/views/Kids/index.php");
-        print_r($kidsList);
+        require_once(ROOT . "/views/Kids/index.php");
         return true; 
     }
     
