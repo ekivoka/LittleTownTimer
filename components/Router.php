@@ -38,7 +38,6 @@ class Router
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
                 
                 
-                
                 // Определяем Controller, action, parameters 
                 
                 $segments = explode('/', $internalRoute);
@@ -49,6 +48,10 @@ class Router
                 
                 $parameters = $segments;
             
+                
+                
+                
+                
                 // Подключить файл класса контроллера
                 $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
                 
@@ -57,13 +60,15 @@ class Router
         
                 }
                 
-                // Создать объект, вызвать метод (т.е action) 
+                // Создать объект, вызвать метод (т.е action)
+                
+                
+
         
                 $controllerObject = new $controllerName;
                 
                 $result = call_user_func_array(Array($controllerObject, $actionName), $parameters);
                 
-                //$result = $controllerObject->$actionName($parameters);
                 if ($result != null){
                     break;
                 }
